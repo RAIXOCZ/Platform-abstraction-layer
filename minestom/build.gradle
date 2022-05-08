@@ -1,0 +1,33 @@
+plugins {
+    id 'java'
+    id 'maven-publish'
+}
+
+ext.artifactName = 'platform-abstraction-layer-minestom'
+ext.artifactVersion = project.version
+
+repositories {
+    maven { url 'https://jitpack.io' }
+    maven { url 'https://repo.minebench.de' }
+}
+
+dependencies {
+    implementation project(':api')
+
+    compileOnly 'com.github.Minestom:Minestom:64de8f87c0'
+    implementation 'de.themoep:minedown-adventure:1.7.1-SNAPSHOT'
+}
+
+publishing {
+    repositories {
+        mavenLocal()
+    }
+    publications {
+        deployment(MavenPublication) {
+            from components.java
+            groupId 'net.playeranalytics'
+            artifactId "$artifactName"
+            version "$artifactVersion"
+        }
+    }
+}

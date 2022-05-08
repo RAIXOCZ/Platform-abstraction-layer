@@ -1,7 +1,4 @@
 rootProject.name = 'Platform-abstraction-layer'
 include 'api'
-include 'bukkit'
-include 'sponge'
-include 'bungeecord'
-include 'velocity'
-include 'nukkit'
+include 'minestom'
+
